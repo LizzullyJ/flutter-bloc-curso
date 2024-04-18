@@ -5,6 +5,7 @@ import 'package:blocs_app/config/config.dart';
 import 'package:blocs_app/presentation/blocs/blocs.dart';
 
 void main() {
+  serviceLocatorInit();
   return runApp(const BlocsProviders());
 }
 
@@ -14,10 +15,11 @@ class BlocsProviders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => UsernameCubit(), lazy: false),
-      BlocProvider(create: (context) => RouterSimpleCubit()),
-      BlocProvider(create: (context) => CounterCubit()),
-      BlocProvider(create: (context) => ThemeCubit()),
+      BlocProvider(create: (context) => getIt<UsernameCubit>()),
+      BlocProvider(create: (context) => getIt<RouterSimpleCubit>()),
+      BlocProvider(create: (context) => getIt<CounterCubit>()),
+      BlocProvider(create: (context) => getIt<ThemeCubit>()),
+      BlocProvider(create: (context) => getIt<GuestsBloc>()),
     ], child: const MyApp());
   }
 }
