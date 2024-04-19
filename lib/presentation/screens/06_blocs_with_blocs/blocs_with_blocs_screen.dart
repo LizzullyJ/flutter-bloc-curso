@@ -25,8 +25,7 @@ class BlocsWithBlocsScreen extends StatelessWidget {
             title: Text('Lat: $lat, Lng: $lng'),
           );
         
-          return null;
-          return null;},)
+          },)
     );
   }
 }

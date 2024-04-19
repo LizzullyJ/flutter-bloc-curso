@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:blocs_app/config/config.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';

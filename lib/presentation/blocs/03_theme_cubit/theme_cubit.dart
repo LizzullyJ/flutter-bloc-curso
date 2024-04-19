@@ -11,7 +11,7 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   void toggledTheme(){
     emit(ThemeState(isDarkMode: !state.isDarkMode));
-    print(state.isDarkMode);
+   // print(state.isDarkMode);
   }
 
   void setDarkMode(){
