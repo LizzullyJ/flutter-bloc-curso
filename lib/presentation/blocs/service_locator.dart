@@ -1,6 +1,7 @@
 //*Crear instancias de los blocs para que siempre existan y luego obtenerlas y consumirlas
 
 import 'package:blocs_app/config/config.dart';
+
 import 'package:blocs_app/presentation/blocs/blocs.dart';
 import 'package:get_it/get_it.dart';
 
@@ -13,4 +14,13 @@ void serviceLocatorInit() {
   getIt.registerSingleton(GuestsBloc());
   getIt.registerSingleton(
       PokemonBloc(fetchPokemon: PokemonInformation.getPokemonName));
+  //final historicBloc = getIt.registerSingleton(HistoricLocationBloc());
+  getIt.registerSingleton(HistoricLocationBloc());
+ getIt.registerSingleton( 
+      GeolocationCubit(
+        // onNewUserLocationCallback: historicBloc.onNewUserLocation,
+        onNewUserLocationCallback: getIt<HistoricLocationBloc>().onNewUserLocation,
+      )
+        ..watchUserLocation()
+  );
 }
